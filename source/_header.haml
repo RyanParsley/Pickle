@@ -1,0 +1,13 @@
+%header{:role=> "banner"}
+  .container
+    %a{:id=>"Logo", :href=> "/"}
+      %img{:src => "images/logoPlaceholder.png"}
+    %a{:class => "CTA", :href => "/conversion"} Do Something, quick!
+%nav
+  %ul
+    %li
+      %a{:class => "#{active?('welcome')}", :href => "/welcome"} Welcome
+    %li
+      %a{:class => "#{active?('about')}", :href => "/about"} About
+    %li
+      %a{:class => "#{active?('contact')}", :href => "/contact"} Contact
