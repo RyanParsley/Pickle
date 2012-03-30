@@ -1,16 +1,26 @@
-// Global style definitions
+@include global-reset();
+
+// Layout Settings
 $grid-background-total-columns: 10;
 $grid-background-column-width: 68px;
 $grid-background-gutter-width: 24px;
 $grid-background-baseline-height: 24px;
 $grid-background-offset:24px;
 
-#{$container} {
-  margin: 0 auto;
-  padding: 0px 24px; 
-  //@include grid-background();
-}
-@include global-reset();
+// Basic Typography Settings
+$indented-paragraphs: true;
+$loud-color: #fff;
+$text-color:#333;
+$reversed-text: #ccc;
+$header-color:#111;
+$base-line-height: 2;
+$fixed-font-family: courier, mono;
+$fixed-font-size:16px;
+$fixed-line-height:2;
+
+@include basic-typography(true);
+
+// Color palette
 $primaryBGColor: white;
 $primaryColor: rgb(60, 60, 60);
 
@@ -26,17 +36,11 @@ $buttonColorActive: #cccccc;
 $footerBGColor: #999999;
 $headerBGColor: rgba(0, 0, 0, 0.2);
 
-h1 {
-  @extend .biggest; }
-
-h2 {
-  @extend .bigger; }
-
-h3 {
-  @extend .big; }
-
-small {
-  @extend .small; }
+#{$container} {
+  margin: 0 auto;
+  padding: 0px 24px; 
+  //@include grid-background();
+}
 
 input, textarea {
   padding: 0.5em;
