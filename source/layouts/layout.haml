@@ -12,14 +12,16 @@
     %link{:rel => "apple-touch-icon", :sizes => "72x72", :href => "images/apple-touch-icon-ipad.png"}
     %link{:rel => "apple-touch-icon", :sizes => "114x114", :href => "images/apple-touch-icon-iphone4.png"}
 
-    %title= @title
+    %title= page_title
 
-    = stylesheet_link_tag("site.css")
-    = yield_content :head 
+    = stylesheet_link_tag("style.css")
+    = yield_content :head
 
-  %body{:class => @page_classes}
-    = partial :header
+  %body{:class => page_classes}
+    = partial "partials/header"
     #page.container
-      %h1= @title
+      %h1= title
       %section{:role => "main"}
         = yield
+      = partial "partials/aside"
+    = partial "partials/footer"

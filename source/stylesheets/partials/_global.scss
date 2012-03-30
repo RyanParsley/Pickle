@@ -1,0 +1,133 @@
+// Global style definitions
+$grid-background-total-columns: 10;
+$grid-background-column-width: 68px;
+$grid-background-gutter-width: 24px;
+$grid-background-baseline-height: 24px;
+$grid-background-offset:24px;
+
+#{$container} {
+  margin: 0 auto;
+  padding: 0px 24px; 
+  //@include grid-background();
+}
+@include global-reset();
+$primaryBGColor: white;
+$primaryColor: rgb(60, 60, 60);
+
+$secondaryBGColor: rgb(232, 232, 232);
+$secondaryColor: #999999;
+
+$buttonBGColor: #888888;
+$buttonColor: rgba(0, 0, 0, 0.5);
+
+$buttonBGColorActive: rgba(0, 0, 0, 0.3);
+$buttonColorActive: #cccccc;
+
+$footerBGColor: #999999;
+$headerBGColor: rgba(0, 0, 0, 0.2);
+
+h1 {
+  @extend .biggest; }
+
+h2 {
+  @extend .bigger; }
+
+h3 {
+  @extend .big; }
+
+small {
+  @extend .small; }
+
+input, textarea {
+  padding: 0.5em;
+  font-size: 21px;
+  font-family: arial;
+  border: 1px solid #333333;
+  display: block; }
+
+textarea {
+  resize: none;
+  width: 100%;
+  @include padded-column(3, 1);
+  @include prepend-column(0.5, 1, true); }
+
+input[type=text], input[type=password], input[type=url] {
+  @include padded-column(3, 1);
+  @include prepend-column(0.5, 1, true); 
+}
+
+input[type=submit] {
+  @include clean-pill-button(rgb(0,182,241));
+  @include prepend-column(0.5, 1, true); }
+
+html {
+  background: $footerBGColor; }
+
+body {
+  background: $secondaryBGColor;
+  color: $primaryColor;
+  // Stops Mobile Safari from auto-adjusting font-sizes
+  -webkit-text-size-adjust: 100%; }
+
+header[role= banner] {
+  background: $headerBGColor;
+  padding-top: 24px;
+  padding-bottom: 24px; }
+
+body>footer {
+  padding-top: 24px;
+  background: $footerBGColor; }
+
+#page {
+  padding-top: 24px;
+  padding-bottom: 24px; }
+
+[role=main] {
+  background: $primaryBGColor; }
+
+nav {
+  background: $footerBGColor;
+  ul {
+    list-style: none; }
+  li {
+    display: inline-block; }
+  a {
+    display: block;
+    background: $buttonBGColor;
+    color: $buttonColor;
+    text-decoration: none;
+    padding: 6px;
+    &.active {
+      background: $buttonBGColorActive;
+      color: $buttonColorActive; } } }
+
+.CTA {
+  background: $primaryBGColor; }
+
+aside {
+  background: $primaryBGColor; }
+
+// Selection colors (easy to forget)
+@include selection-color(unquote("rgb(255,255,158)"));
+
+.first {
+  @include column(4);
+  float: left; }
+
+.second {
+  @include column(2);
+  @include prepend-column(1);
+  float: left; }
+
+.third {
+  @include column(3, true);
+  float: left; }
+
+$animals: puma,
+          sea-slug,
+          egret,
+          salamander;
+
+@each $animal in $animals{
+  @include classBG($animal); 
+}

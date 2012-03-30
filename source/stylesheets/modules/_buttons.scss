@@ -1,0 +1,46 @@
+@mixin clean-pill-button($background: #666, $height: 48px){
+  $shadow: darken($background, 20%);
+  background: $background;
+  @include background-image(linear-gradient(rgba(255,255,255,.6),
+                                            rgba(255,255,255,.2) 50%,
+                                            rgba(255,255,255,0) 50%));
+  @include box-shadow($shadow 1px 1px 3px,
+                      inset lighten($background, 50%) 0px 1px 0);
+  color: #fff;
+  border: solid 1px $shadow;
+  height: $height;
+  padding-left:36px;
+  padding-right:36px;
+  @include border-radius($height/2);
+  @include text-shadow($shadow -1px -1px 0);
+  &:hover{
+    @include text-shadow(none);
+    @include box-shadow(inset lighten($background, 20%) 0px -1px 0);
+    @include background-image(linear-gradient(rgba(255,255,255,.4),
+                                              rgba(255,255,255,.1) 50%,
+                                              rgba(255,255,255,0) 50%));
+  }
+}
+@mixin button($background-color, $border-color, $color, $background-color-hover, $color-hover){
+  background:$background-color;
+  background:$background-color url(../images/noise.png);
+  @include box-shadow(0 2px 6px rgba(0,0,0,0.2),
+                      inset 0 1px rgba(255,255,255,0.2),
+                      inset 0 10px 20px rgba(255,255,255,0.1),
+                      inset 0 -15px 30px rgba(0,0,0,0.3));
+  border:solid 2px $border-color;
+  text-decoration:none;
+  color:$color;
+  @include text-shadow(1px 1px 1px rgba(255,255,255,.5)); 
+  font-size:18px;
+  padding-left:24px;
+  padding-right:24px;
+  @include border-radius(6px);
+  &:hover, &.active, &.active-trail{
+    color:$color-hover;
+    background:$background-color-hover;
+    @include box-shadow(none);
+    @include text-shadow(none);
+    border:solid 2px $background-color-hover;
+  }
+}

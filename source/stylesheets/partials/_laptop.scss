@@ -1,0 +1,27 @@
+@mixin laptop {
+  #{$container} {
+    @include grid(10, false);
+  }
+  #page {
+    @include clearfix;
+  }
+  [role=main] {
+    @include padded-column(6, 1, false);
+    border: solid 1px $primaryColor;
+    @include append-column(1, 1, true);
+    float: left;
+  }
+  aside {
+    @include padded-column(3, 0, true);
+    float: left;
+  }
+  .CTA {
+    display: inline-block;
+    @include padded-column(3, 0, true);
+    float: right;
+    text-decoration: none;
+  }
+}
+@media only screen and (min-width: 992px) {
+  @include laptop; 
+}
