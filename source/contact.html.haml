@@ -2,18 +2,18 @@
 title: Contact Us
 ---
 
--form_tag '/destroy', :class => 'destroy-form', :method => 'delete' do
+Here is some super inviting text to lure you into wanting to give me all of you personal information.
+-form_tag '/contact', :class => 'contactForm', :method => 'post' do
   -field_set_tag do
     %ul
       %li
-        = label_tag :username, :class => 'first'
-        = text_field_tag :username, :value => params[:username]
+        = label_tag :name, :class => 'name'
+        = text_field_tag :name, :value => params[:name]
       %li
-        = label_tag :password, :class => 'first'
-        = password_field_tag :password, :value => params[:password]
+        = label_tag :email, :class => 'first'
+        = password_field_tag :email, :value => params[:email]
       %li
-        = label_tag :strategy
-        = select_tag :strategy, :options => ['delete', 'destroy'],
-            :selected => 'delete'
+        = label_tag :message
+        = text_area_tag :message
   -field_set_tag(:class => 'buttons') do 
-    = submit_tag "Remove"
+    = submit_tag "submit"

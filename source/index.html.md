@@ -1,7 +1,8 @@
 ---
+
 title: The Middleman!
 selected: welcome
+layout: landing
 
 ---
-
-The Middleman is watching.
+This is the landing page... Ain't it grand!
