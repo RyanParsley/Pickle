@@ -1,11 +1,11 @@
-$less-grid-element: unquote("body") !default;
-$less-grid-padding: true !default;
-$less-font-family: Arial, sans-serif !default;
+$grid-element: unquote("body") !default;
+$grid-padding: true !default;
+$font-family: Arial, sans-serif !default;
 $column-width: 68px !default;
 $gutter-width: 24px !default;
 $column-padding: 10px !default;
 
-@mixin grid($columns, $padding: $less-grid-padding) {
+@mixin grid($columns, $padding: $grid-padding) {
   @include column($columns, true);
   @if $padding == true {
     @include grid-padding($columns);

@@ -1,6 +1,5 @@
 ---
 title: The Middleman!
-
 selected: welcome
 
 ---

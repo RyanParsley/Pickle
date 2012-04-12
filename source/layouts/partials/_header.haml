@@ -3,7 +3,15 @@
     %a{:id=>"Logo", :href=> "/"}
       %img{:src => "images/logoPlaceholder.png"}
     %a{:class => "CTA", :href => "/conversion"} Do Something, quick!
-%nav
+    %nav
+      %ul
+        %li
+          %a{:class => "#{active?('welcome')}", :href => "/"} Welcome
+        %li
+          %a{:class => "#{active?('about')}", :href => "/about"} About
+        %li
+          %a{:class => "#{active?('contact')}", :href => "/contact"} Contact
+%nav.secondary
   %ul
     %li
       %a{:class => "#{active?('welcome')}", :href => "/"} Welcome

@@ -21,6 +21,7 @@
                                               rgba(255,255,255,0) 50%));
   }
 }
+
 @mixin button($background-color, $border-color, $color, $background-color-hover, $color-hover){
   background:$background-color;
   background:$background-color url(../images/noise.png);

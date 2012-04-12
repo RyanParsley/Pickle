@@ -1,22 +1,8 @@
 @include global-reset();
 
-// Layout Settings
-$grid-background-total-columns: 10;
-$grid-background-column-width: 68px;
-$grid-background-gutter-width: 24px;
-$grid-background-baseline-height: 24px;
-$grid-background-offset:24px;
-
 // Basic Typography Settings
 $indented-paragraphs: true;
-$loud-color: #fff;
-$text-color:#333;
-$reversed-text: #ccc;
 $header-color:#111;
-$base-line-height: 2;
-$fixed-font-family: courier, mono;
-$fixed-font-size:16px;
-$fixed-line-height:2;
 
 @include basic-typography(true);
 
@@ -57,7 +43,7 @@ textarea {
 
 input[type=text], input[type=password], input[type=url] {
   @include padded-column(3, 1);
-  @include prepend-column(0.5, 1, true); 
+  @include prepend-column(0.5, 1, true);
 }
 
 input[type=submit] {
@@ -76,18 +62,22 @@ body {
 header[role= banner] {
   background: $headerBGColor;
   padding-top: 24px;
-  padding-bottom: 24px; }
+  padding-bottom: 24px;
+}
 
 body>footer {
   padding-top: 24px;
-  background: $footerBGColor; }
+  background: $footerBGColor;
+}
 
 #page {
   padding-top: 24px;
-  padding-bottom: 24px; }
+  padding-bottom: 24px;
+}
 
 [role=main] {
-  background: $primaryBGColor; }
+  background: $primaryBGColor;
+}
 
 nav {
   background: $footerBGColor;
@@ -101,12 +91,19 @@ nav {
     color: $buttonColor;
     text-decoration: none;
     padding: 6px;
-    &.active {
+    &.active, &:hover {
       background: $buttonBGColorActive;
-      color: $buttonColorActive; } } }
+      color: $buttonColorActive; 
+    }
+  }
+}
 
 .CTA {
-  background: $primaryBGColor; }
+  background: $primaryBGColor; 
+  &:hover{
+    background:rgba($primaryBGColor, .5);
+  }
+}
 
 aside {
   background: $primaryBGColor; }
@@ -114,24 +111,4 @@ aside {
 // Selection colors (easy to forget)
 @include selection-color(unquote("rgb(255,255,158)"));
 
-.first {
-  @include column(4);
-  float: left; }
 
-.second {
-  @include column(2);
-  @include prepend-column(1);
-  float: left; }
-
-.third {
-  @include column(3, true);
-  float: left; }
-
-$animals: puma,
-          sea-slug,
-          egret,
-          salamander;
-
-@each $animal in $animals{
-  @include classBG($animal); 
-}

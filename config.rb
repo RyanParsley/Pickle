@@ -64,7 +64,7 @@ set :markdown_engine, :redcarpet
 
 helpers do
   def page_title
-    page_title = "Site Name (Change me in the lib/view_helpers.rb): "
+    page_title = "Site Name (Change me in the config.rb): "
     if data.page.title
       page_title << data.page.title
     else
@@ -91,14 +91,9 @@ helpers do
       "\#{start_year}&#8211;\#{end_year}"
     end
   end
-  
-  # Handy for hiding a block of unfinished code
-  def hidden(&block)
-    #no-op
-  end
-  
+
   # Add your own helpers below...
-   
+
   def active?(part)
      "active" if (data.page.selected == part) or Regexp.new(part).match(request.path)
   end
@@ -124,21 +119,21 @@ set :md, :layout_engine => :haml
 configure :build do
   # For example, change the Compass output style for deployment
   # activate :minify_css
-  
+
   # Minify Javascript on build
   # activate :minify_javascript
-  
+
   # Enable cache buster
   # activate :cache_buster
-  
+
   # Use relative URLs
   # activate :relative_assets
-  
+
   # Compress PNGs after build
   # First: gem install middleman-smusher
   # require "middleman-smusher"
   # activate :smusher
-  
+
   # Or use a different image path
   # set :http_path, "/Content/images/"
 end
