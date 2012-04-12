@@ -1,0 +1,116 @@
+@include global-reset();
+
+// Basic Typography Settings
+$indented-paragraphs: true;
+$header-color:#111;
+
+@include basic-typography(true);
+
+// Color palette
+$primaryBGColor: white;
+$primaryColor: rgb(60, 60, 60);
+
+$secondaryBGColor: rgb(232, 232, 232);
+$secondaryColor: #999999;
+
+$buttonBGColor: #888888;
+$buttonColor: rgba(0, 0, 0, 0.5);
+
+$buttonBGColorActive: rgba(0, 0, 0, 0.3);
+$buttonColorActive: #cccccc;
+
+$footerBGColor: #999999;
+$headerBGColor: rgba(0, 0, 0, 0.2);
+$line-height: 24px;
+
+#{$container} {
+  margin: 0 auto;
+  padding: 0px $line-height; 
+  //@include grid-background();
+}
+
+input, textarea {
+  padding: 0.5em;
+  font-size: 21px;
+  font-family: arial;
+  border: 1px solid #333333;
+  display: block; }
+
+textarea {
+  resize: none;
+  width: 100%;
+  @include padded-column(3, 1);
+  @include prepend-column(0.5, 1, true); }
+
+input[type=text], input[type=password], input[type=url] {
+  @include padded-column(3, 1);
+  @include prepend-column(0.5, 1, true);
+}
+
+input[type=submit] {
+  @include clean-pill-button(rgb(0,182,241));
+  @include prepend-column(0.5, 1, true); }
+
+html {
+  background: $footerBGColor; }
+
+body {
+  background: $secondaryBGColor;
+  color: $primaryColor;
+  // Stops Mobile Safari from auto-adjusting font-sizes
+  -webkit-text-size-adjust: 100%; 
+}
+
+header[role= banner] {
+  background: $headerBGColor;
+  padding-top: $line-height;
+  padding-bottom: $line-height;
+}
+
+body>footer {
+  padding-top: $line-height;
+  background: $footerBGColor;
+}
+
+#page {
+  padding-top: $line-height;
+  padding-bottom: $line-height;
+}
+
+[role=main] {
+  background: $primaryBGColor;
+}
+
+nav {
+  background: $footerBGColor;
+  ul {
+    list-style: none; }
+  li {
+    display: inline-block; }
+  a {
+    display: block;
+    background: $buttonBGColor;
+    color: $buttonColor;
+    text-decoration: none;
+    padding: 6px;
+    &.active, &:hover {
+      background: $buttonBGColorActive;
+      color: $buttonColorActive; 
+    }
+  }
+}
+
+.CTA {
+  background: $primaryBGColor; 
+  &:hover{
+    background:rgba($primaryBGColor, .5);
+  }
+}
+
+aside {
+  background: $primaryBGColor; 
+}
+
+// Selection colors (easy to forget)
+@include selection-color(unquote("rgb(255,255,158)"));
+

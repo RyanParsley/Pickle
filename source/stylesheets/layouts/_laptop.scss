@@ -1,0 +1,59 @@
+@mixin laptop {
+  #{$container} {
+    @include grid(10, false);
+  }
+  #page {
+    @include clearfix;
+  }
+  #Logo{
+    @include column(3);
+    float:left;
+    img{
+      max-width:100%;
+    }
+  }
+  header[role= banner] {
+    .container{
+      @include clearfix();
+    }
+    nav {
+      @include column(7,true);
+      float:left;
+      text-align:right;
+    }
+  }
+  nav.secondary ul{
+  }
+  [role=main] {
+    @include padded-column(6, 1, false);
+    border: solid 1px $primaryColor;
+    @include append-column(1, 1, true);
+    float: left;
+  }
+  aside {
+    @include padded-column(3, 0, true);
+    float: left;
+  }
+  .CTA {
+    display: inline-block;
+    @include padded-column(3, 0, true);
+    float: right;
+    text-decoration: none;
+  }
+  .first {
+    @include column(4);
+    float: left; 
+  }
+  .second {
+    @include column(2);
+    @include prepend-column(1);
+    float: left; 
+  }
+  .third {
+    @include column(3, true);
+    float: left; 
+  }
+}
+@media only screen and (min-width: 992px) {
+  @include laptop; 
+}

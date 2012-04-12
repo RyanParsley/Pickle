@@ -1,0 +1,19 @@
+@mixin mobile {
+  #{$container} {
+    @include grid(3, false);
+  }
+  [role=main] {
+    @include padded-column(3, 0, true);
+  }
+  aside {
+    @include padded-column(3, 0, true);
+  }
+  .CTA {
+    display: inline-block;
+    @include padded-column(3, 0, true);
+    text-decoration: none;
+  }
+}
+@media only screen and (max-width: 479px) {
+  @include mobile; 
+}

@@ -7,12 +7,12 @@ $container: unquote(".container, nav ul");
 @import "compass/layout/grid-background";
 @import "compass/utilities/general/clearfix";
 
-@import "layout/reset";
-@import "layout/framework";
+@import "base/reset";
+@import "base/framework";
 
-@import "partials/global";
-@import "partials/laptop";
-@import "partials/ieLT9";
+@import "layouts/global";
+@import "layouts/laptop";
+@import "layouts/ieLT9";
 
 @import "modules/all";
 

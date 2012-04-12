@@ -1,0 +1,22 @@
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #{$container} {
+    @include grid(8, false);
+  }
+  #page {
+    @include clearfix;
+  }
+  [role=main] {
+    @include padded-column(5, 0);
+    float: left;
+  }
+  .CTA {
+    display: inline-block;
+    @include padded-column(3, 0, true);
+    float: right;
+    text-decoration: none;
+  }
+  aside {
+    @include padded-column(3, 0, true);
+    float: left;
+  }
+}

@@ -3,8 +3,8 @@ $container: unquote(".container, nav.secondary ul");
 @import "compass/utilities/general/clearfix";
 @import "compass/reset";
 
-@import "layout/reset";
-@import "layout/framework";
+@import "base/reset";
+@import "base/framework";
 
 @import "compass/css3/text-shadow";
 @import "compass/css3/border-radius";
@@ -15,10 +15,10 @@ $container: unquote(".container, nav.secondary ul");
 
 @import "modules/all";
 
-@import "partials/global";
-@import "partials/laptop";
-@import "partials/tablet";
-@import "partials/mobile";
-@import "partials/wide-mobile";
-@import "partials/high-px-ratio";
+@import "layouts/global";
+@import "layouts/laptop";
+@import "layouts/tablet";
+@import "layouts/mobile";
+@import "layouts/wide-mobile";
+@import "layouts/high-px-ratio";
 
