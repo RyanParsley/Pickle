@@ -2,7 +2,9 @@
   margin: 0 auto;
   padding: 0px $line-height; 
 }
-
+img, embed, object, video{
+  max-width:100%;
+}
 input, textarea {
   padding: 0.5em;
   font-size: 21px;
