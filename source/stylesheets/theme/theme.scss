@@ -1,0 +1,39 @@
+@include global-reset();
+
+// Color palette
+$primaryBGColor: white;
+$primaryColor: rgb(60, 60, 60);
+
+$secondaryBGColor: rgb(232, 232, 232);
+$secondaryColor: #999999;
+
+$buttonBGColor: #888888;
+$buttonColor: rgba(0, 0, 0, 0.5);
+
+$buttonBGColorActive: rgba(0, 0, 0, 0.3);
+$buttonColorActive: #cccccc;
+
+$footerBGColor: #999999;
+
+$header-color:#111;
+$headerBGColor: rgba(0, 0, 0, 0.2);
+
+
+// Basic Typography Settings
+$indented-paragraphs: true;
+$base-font-size: 14px;
+$base-line-height: 17px;
+$line-height: 24px;
+
+@include basic-typography(true);
+
+
+// Grid stuff
+$grid-background-column-color: rgba(100, 100, 225, 0.25);
+$grid-background-total-columns: 10;
+$grid-background-column-width: 68px;
+$grid-background-gutter-width: 24px;
+$grid-background-offset: 0px;
+$grid-background-baseline-color: rgba(0, 0, 0, 0.5);
+$grid-background-baseline-height: 1.5em;
+$show-grid-backgrounds: false;

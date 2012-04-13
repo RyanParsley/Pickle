@@ -1,32 +1,6 @@
-@include global-reset();
-
-// Basic Typography Settings
-$indented-paragraphs: true;
-$header-color:#111;
-
-@include basic-typography(true);
-
-// Color palette
-$primaryBGColor: white;
-$primaryColor: rgb(60, 60, 60);
-
-$secondaryBGColor: rgb(232, 232, 232);
-$secondaryColor: #999999;
-
-$buttonBGColor: #888888;
-$buttonColor: rgba(0, 0, 0, 0.5);
-
-$buttonBGColorActive: rgba(0, 0, 0, 0.3);
-$buttonColorActive: #cccccc;
-
-$footerBGColor: #999999;
-$headerBGColor: rgba(0, 0, 0, 0.2);
-$line-height: 24px;
-
 #{$container} {
   margin: 0 auto;
   padding: 0px $line-height; 
-  //@include grid-background();
 }
 
 input, textarea {
@@ -58,13 +32,30 @@ body {
   background: $secondaryBGColor;
   color: $primaryColor;
   // Stops Mobile Safari from auto-adjusting font-sizes
-  -webkit-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%;
+  @if $show-grid-backgrounds{
+    &:before{
+      z-index: 2;
+      content: " ";
+      display:block;
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      width:896px;
+      margin:0 auto;
+      @include grid-background();
+    }
+  }
 }
 
 header[role= banner] {
   background: $headerBGColor;
-  padding-top: $line-height;
-  padding-bottom: $line-height;
+  .container{
+    padding-top: $line-height;
+    padding-bottom: $line-height;
+  }
 }
 
 body>footer {
@@ -75,6 +66,7 @@ body>footer {
 #page {
   padding-top: $line-height;
   padding-bottom: $line-height;
+  @include padding-leader(1);
 }
 
 [role=main] {
@@ -113,4 +105,5 @@ aside {
 
 // Selection colors (easy to forget)
 @include selection-color(unquote("rgb(255,255,158)"));
+
 
