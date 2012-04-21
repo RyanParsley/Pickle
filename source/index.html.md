@@ -1,5 +1,4 @@
 ---
-
 title: The Middleman!
 selected: welcome
 layout: landing
