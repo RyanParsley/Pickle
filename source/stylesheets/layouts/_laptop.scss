@@ -25,18 +25,18 @@
   nav.secondary ul{
   }
   [role=main] {
-    @include padded-column(6, 1, false);
-    border: solid 1px $primaryColor;
-    @include append-column(1, 1, true);
+    @include padded-column(6, 1, false, false);
+    @include append-column(1,1, true);
+    border: solid 1px $primaryColor; 
     float: left;
   }
   aside {
-    @include padded-column(3, 0, true);
+    @include padded-column(3, 0, true,  true);
     float: left;
   }
   .CTA {
     display: inline-block;
-    @include padded-column(3, 0, true);
+    @include padded-column(3, 0, false,  true);
     float: right;
     text-decoration: none;
   }

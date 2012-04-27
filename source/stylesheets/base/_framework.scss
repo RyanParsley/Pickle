@@ -40,13 +40,23 @@ $column-padding: 10px !default;
   }
 }
 
-@mixin padded-column($columns, $border-width: 0px, $last: false){
-  width: ($column-width * $columns) + ($gutter-width * ($columns - 1));
-  padding: $column-padding;
+@mixin padded-column($columns, $border-width: 0px, $big: false, $last: false){
+  
   margin-top: $gutter-width - $column-padding - $border-width;
   margin-bottom: $gutter-width - $column-padding - $border-width;
-  margin-left: -($column-padding + $border-width);
-  margin-right: -($column-padding + $border-width);
+   @if $big{
+    width: ($column-width * ($columns - 2)) + ($gutter-width * ($columns - 1));
+    $big-padding: $column-width / 2 - $gutter-width;
+    $big-margin: $column-width / 2 + $gutter-width;
+    padding: $column-padding $big-padding;
+    margin-left: $big-margin;
+    margin-right: $big-margin;
+   }@else{
+    width: ($column-width * $columns) + ($gutter-width * ($columns - 1));
+    padding: $column-padding;
+    margin-left: -($column-padding + $border-width);
+    margin-right: -($column-padding + $border-width);
+ }
   @if $last != true {
     margin-right: $gutter-width - $column-padding - $border-width;
   }
