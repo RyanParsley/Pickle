@@ -18,11 +18,7 @@
     = yield_content :head
 
   %body{:class => page_classes}
-    = partial "layouts/partials/header_landing"
-    = partial "layouts/partials/pitch"
+    = partial "layouts/partials/header"
     #page.container
-      %h1= title
-      %section{:role => "main"}
-        = yield
-      = partial "layouts/partials/features"
-    = partial "layouts/partials/footer"
+      = yield
+    = partial "layouts/partials/footer_test"

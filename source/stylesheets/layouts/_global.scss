@@ -2,6 +2,9 @@
   margin: 0 auto;
   padding: 0px $line-height; 
 }
+
+$font-family: verdana, sans-serif !default;
+
 img, embed, object, video{
   max-width:100%;
 }
@@ -10,22 +13,23 @@ input, textarea {
   font-size: 21px;
   font-family: arial;
   border: 1px solid #333333;
-  display: block; }
+  display: block; 
+}
 
 textarea {
   resize: none;
   width: 100%;
-  @include padded-column(3, 1);
-  @include prepend-column(0.5, 1, true); }
+  @include column(3, 1);
+  @include prepend-column(0.5); }
 
 input[type=text], input[type=password], input[type=url] {
-  @include padded-column(3, 1);
-  @include prepend-column(0.5, 1, true);
+  @include column(3, 1);
+  @include prepend-column(0.5);
 }
 
 input[type=submit] {
   @include clean-pill-button(rgb(0,182,241));
-  @include prepend-column(0.5, 1, true); }
+  @include prepend-column(0.5); }
 
 html {
   background: $footerBGColor; }
@@ -61,7 +65,6 @@ header[role= banner] {
 }
 
 body>footer {
-  padding-top: $line-height;
   background: $footerBGColor;
 }
 
@@ -107,5 +110,3 @@ aside {
 
 // Selection colors (easy to forget)
 @include selection-color(unquote("rgb(255,255,158)"));
-
-

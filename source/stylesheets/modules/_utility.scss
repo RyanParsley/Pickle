@@ -30,6 +30,13 @@
   }
 }
 
+@mixin selection-color($color: unquote("rgb(255,255,158)")) {
+  ::selection {background: #{$color};}
+  ::-moz-selection {background: #{$color};}
+  img::selection {background: transparent;}
+  img::-moz-selection {background: transparent;}
+  body {-webkit-tap-highlight-color: #{$color};}
+}
 @mixin classBG($image){
   .#{$image}{
     background-image: url(../img/#{$image})

@@ -1,23 +1,19 @@
 @mixin laptop {
   #{$container} {
-    @include grid(10, false);
-  }
-  #page {
+    @include grid(10);
+    background: rgba(0,0,0, .3);
     @include clearfix;
   }
   #Logo{
-    @include column(3);
+    @include column(3, first);
     float:left;
     img{
       max-width:100%;
     }
   }
   header[role= banner] {
-    .container{
-      @include clearfix();
-    }
     nav {
-      @include column(7,true);
+      @include column(7,last);
       float:left;
       text-align:right;
     }
@@ -25,33 +21,176 @@
   nav.secondary ul{
   }
   [role=main] {
-    @include padded-column(6, 1, false);
+    @include column(6, first);
     border: solid 1px $primaryColor;
-    @include append-column(1, 1, true);
+    @include append-column(1);
     float: left;
   }
   aside {
-    @include padded-column(3, 0, true);
+    @include column(3, last);
     float: left;
   }
   .CTA {
     display: inline-block;
-    @include padded-column(3, 0, true);
+    @include column(3, last);
     float: right;
     text-decoration: none;
   }
+  .pitch {
+    background:#fff;
+    .content{
+      @include column(6, last);
+      @include prepend-column(4, true);
+      background:rgba(0,0,0,.1);
+      p{
+        font-size:2em;
+        margin-bottom:1em;
+        @include column(4, last);
+        @include prepend-column(1);
+      }
+      .cta a{
+        display:block;
+        -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+        text-decoration: none; 
+        @include clean-pill-button(#999, 72px);
+        @include column(5,last);
+        @include prepend-column(.5);
+        @include append-column(.5);
+        @include pad-column(1);
+        padding-top:6px;
+        line-height:1.25;
+        font-size: 1.75em;
+        color:#fff;
+        span{
+          display:block;
+          font-size:.75em;
+        }
+      }
+    }
+  }
+  .features{
+    clear: left;
+    margin:0;
+    padding:0;
+    list-style:none;
+    li:nth-child(2n + 1){
+      @include column(5, first);
+      float:left;
+    }
+    li:nth-child(2n){
+      @include column(5, last);
+      float:left;
+    }
+  }
   .first {
-    @include column(4);
+    @include column(2, first);
+    @include prepend-column(1, true);
     float: left; 
+    background:rgba(0,0,0,.2);
   }
   .second {
     @include column(2);
-    @include prepend-column(1);
+    @include append-column(1);
     float: left; 
+    background:rgba(0,0,0,.2);
   }
   .third {
-    @include column(3, true);
+    @include column(3, last);
+    @include append-column(1, true);
     float: left; 
+    background:rgba(0,0,0,.2);
+  }
+  .contactForm{
+    clear:left;
+  }
+  .oneCol{
+    @include column(1);
+    float:left;
+    background:#fff;
+  }
+  .oneCol.first{
+    @include column(1, first);
+    clear:left;
+    float:left;
+    background:#fff;
+  }
+  .oneCol.last{
+    @include column(1, last);
+    float:left;
+    background:#fff;
+  }
+  .twoColPad{
+    @include column(2);
+    float:left;
+    background:#fff;
+  }
+  .twoColPad.first{
+    @include column(2, first);
+    float:left;
+    background:#fff;
+  }
+  .twoColPad.last{
+    @include column(2, last);
+    float:left;
+    background:#fff;
+  }
+  .threeColPad{
+    @include column(3);
+    float:left;
+    background:#fff;
+  }
+  .threeColPad.first{
+    @include column(3, first);
+    float:left;
+    background:#fff;
+  }
+  .threeColPad.last{
+    @include column(3, last);
+    float:left;
+    background:#fff;
+  }
+  .fourColPad{
+    @include column(4);
+    float:left;
+    background:#fff;
+  }
+  .fourColPad.first{
+    @include column(4, first);
+    float:left;
+    background:#fff;
+  }
+  .fourColPad.last{
+    @include column(4, last);
+    float:left;
+    background:#fff;
+  }
+  .fiveColPad{
+    @include column(5);
+    float:left;
+    background:#fff;
+  }
+  .fiveColPad.first{
+    @include column(5, first);
+    float:left;
+    background:#fff;
+  }
+  .fiveColPad.last{
+    @include column(5, last);
+    float:left;
+    background:#fff;
+  }
+  
+  .mainTest{
+    @include column(6.5);
+    float:left;
+    background:#fff;
+  }
+  .asideTest{
+    @include column(3.5, last);
+    @include pad-column-left(.5);
+    float:left;
+    background:#fff;
+    margin-right: -14px;
   }
 }
 @media only screen and (min-width: 992px) {

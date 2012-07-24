@@ -1,0 +1,93 @@
+---
+title: Contact Us
+---
+
+%h1 Heading 1
+%h2 Heading 2
+%h3 Heading 3
+%h4 Heading 4
+%p Iustum quis secundum plaga eligo metuo abdo valetudo tamen autem ea dolore aliquip. Et premo consequat te ullamcorper immitto. Hendrerit praesent augue importunus feugait abico humo vel. Vero persto lucidus esse nutus persto.  
+%h2 Heading 2
+%p Iustum quis secundum plaga eligo metuo abdo valetudo tamen autem ea dolore aliquip. Et premo consequat te ullamcorper immitto. Hendrerit praesent augue importunus feugait abico humo vel. Vero persto lucidus esse nutus persto. 
+%h3 Heading 3
+%p Iustum quis secundum plaga eligo metuo abdo valetudo tamen autem ea dolore aliquip. Et premo consequat te ullamcorper immitto. Hendrerit praesent augue importunus feugait abico humo vel. Vero persto lucidus esse nutus persto. 
+%h4 Heading 4
+
+%p Iustum quis secundum plaga eligo metuo abdo valetudo tamen autem ea dolore aliquip. Et premo consequat te ullamcorper immitto. Hendrerit praesent augue importunus feugait abico humo vel. Vero persto lucidus esse nutus persto. 
+
+%p Iustum quis secundum plaga eligo metuo abdo valetudo tamen autem ea dolore aliquip. Et premo consequat te ullamcorper immitto. Hendrerit praesent augue importunus feugait abico humo vel. Vero persto lucidus esse nutus persto. 
+
+
+
+.oneCol.first
+  %p one Col
+.oneCol
+  %p one Col
+.oneCol
+  %p one Col
+.oneCol
+  %p one Col
+.oneCol
+  %p one Col
+.oneCol
+  %p one Col
+.oneCol
+  %p one Col
+.oneCol
+  %p one Col
+.oneCol
+  %p one Col
+.oneCol.last
+  %p one Col
+
+.twoColPad.first
+  %p Two Col Padded
+.twoColPad
+  %p Two Col Padded
+.twoColPad
+  %p Two Col Padded
+.twoColPad
+  %p Two Col Padded
+.twoColPad.last
+  %p Two Col Padded
+
+.threeColPad.first
+  %p Three Col Padded
+.threeColPad
+  %p Three Col Padded
+.threeColPad
+  %p Three Col Padded
+.oneCol.last
+  %p one Col Padded
+
+.fourColPad.first
+  %p Four Col Padded
+.fourColPad
+  %p Four Col Padded
+.twoColPad
+  %p Two Col Padded
+
+.fiveColPad.first
+  %p Five Col Padded
+.fiveColPad.last
+  %p Five Col Padded
+
+.mainTest.first
+  %p A wide column that will split a column with an aside
+.asideTest
+  %p A sidebar
+
+-form_tag '/contact', :class => 'contactForm', :method => 'post' do
+  -field_set_tag do
+    %ul
+      %li
+        = label_tag :name, :class => 'name'
+        = text_field_tag :name, :value => params[:name]
+      %li
+        = label_tag :email, :class => 'email'
+        = password_field_tag :email, :value => params[:email]
+      %li
+        = label_tag :message
+        = text_area_tag :message
+  -field_set_tag(:class => 'buttons') do 
+    = submit_tag "submit"

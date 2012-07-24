@@ -1,16 +1,16 @@
 @mixin mobile {
   #{$container} {
-    @include grid(3, false);
+    @include grid(3);
   }
   [role=main] {
-    @include padded-column(3, 0, true);
+    @include column(3, last);
   }
   aside {
-    @include padded-column(3, 0, true);
+    @include column(3, last);
   }
   .CTA {
     display: inline-block;
-    @include padded-column(3, 0, true);
+    @include column(3, last);
     text-decoration: none;
   }
 }

@@ -1,68 +1,64 @@
 $grid-element: unquote("body") !default;
-$grid-padding: true !default;
-$font-family: verdana, sans-serif !default;
-$column-width: 68px !default;
-$gutter-width: 24px !default;
+$column-width: 88px !default;
+$gutter-width: 4px !default;
 $column-padding: 10px !default;
 
-@mixin grid($columns, $padding: $grid-padding) {
-  @include column($columns, true);
-  @if $padding == true {
-    @include grid-padding($columns);
-  }
+@mixin grid($columns) {
+  width: (68px * $columns) + (24px * ($columns - 1));
+  padding: $column-padding * 2;
 }
 
-@mixin grid-padding($columns) {
-  @if $columns == 10 {
-    padding: 24px;
-  } @else if $columns == 8 {
-    padding: 24px;
-  } @else if $columns == 3 {
-    padding: 24px;
-  } @else if $columns == 5 {
-    padding: 24px;
-  }
-}
-
-@mixin prepend-column($columns, $border-width: 0px, $padded: false){
-  @if $padded{
-    margin-left: (($columns * $column-width) + ($gutter-width * ($columns)) - $column-padding - $border-width);
+@mixin prepend-column($columns, $first: false){ 
+  @if $first == true{
+    margin-left: ($columns * $column-width) + ($gutter-width * ($columns)) - $column-padding;
   } @else {
-    margin-left: (($columns * $column-width) + ($gutter-width * ($columns)));
+    margin-left: ($columns * $column-width) + ($gutter-width * ($columns));
   }
 }
 
-@mixin append-column($columns, $border-width: 0px, $padded: false){
-  @if $padded{
-    margin-right: (($columns * $column-width) + ($gutter-width * ($columns + 1)) - $column-padding - $border-width);
-  } @else {
-    margin-right: (($columns * $column-width) + ($gutter-width * ($columns + 1)));
-  }
+@mixin append-column($columns, $last: false){
+   @if $last == true{
+    margin-right: ($columns * $column-width) + ($gutter-width * ($columns)) - $column-padding;
+   } @else {
+     margin-right: ($columns * $column-width) + ($gutter-width * ($columns + 1));
+   }
 }
 
-@mixin padded-column($columns, $border-width: 0px, $last: false){
+@mixin pad-column($columns){
+  $pad: ((.5 * (($columns * $column-width) + ($gutter-width * ($columns)))) + $column-padding);
+  padding-left: $pad;
+  padding-right: $pad;
+}
+
+@mixin pad-column-left($columns){
+  padding-left: ($columns * ( $column-width + $column-padding)) + $column-padding;
+}
+
+@mixin pad-column-right($columns){
+  padding-right: ($columns * ( $column-width + $column-padding)) + $column-padding;
+}
+
+@mixin column($columns, $place: middle){
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
   width: ($column-width * $columns) + ($gutter-width * ($columns - 1));
   padding: $column-padding;
-  margin-top: $gutter-width - $column-padding - $border-width;
-  margin-bottom: $gutter-width - $column-padding - $border-width;
-  margin-left: -($column-padding + $border-width);
-  margin-right: -($column-padding + $border-width);
-  @if $last != true {
-    margin-right: $gutter-width - $column-padding - $border-width;
-  }
-}
-
-@mixin column($columns, $last: false) {
-  width: ($column-width * $columns) + ($gutter-width * ($columns - 1));
-  @if $last != true {
+  margin-top: $gutter-width;
+  margin-bottom: $gutter-width;
+  @if $place == last{
+    margin-right: -$column-padding;
+    margin-left:0;
+  } @else if $place == first{
+    margin-right:$gutter-width;
+    margin-left:-$column-padding;
+  } @else {
+    margin-left:0;
     margin-right: $gutter-width;
   }
 }
 
-@mixin selection-color($color: unquote("rgb(255,255,158)")) {
-  ::selection {background: #{$color};}
-  ::-moz-selection {background: #{$color};}
-  img::selection {background: transparent;}
-  img::-moz-selection {background: transparent;}
-  body {-webkit-tap-highlight-color: #{$color};}
+@mixin first{
+    margin-left:-$column-padding;
+}
+@mixin last{
+    margin-right:-$column-padding;
 }

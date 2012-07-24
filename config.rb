@@ -71,6 +71,8 @@ enable :maruku
 
 set :md, :layout_engine => :haml
 
+page "test.html", :layout => "layouts/test"
+
 # Change the CSS directory
 # set :css_dir, "alternative_css_directory"
 
@@ -79,8 +81,8 @@ set :md, :layout_engine => :haml
 
 # Change the images directory
 # set :images_dir, "alternative_image_directory"
-
 # Build-specific configuration
+::Compass.configuration.sass_options = { :precision => 1 }
 configure :build do
   # For example, change the Compass output style for deployment
   # activate :minify_css
