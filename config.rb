@@ -1,9 +1,22 @@
+require "./lib/lil_helpers"
+helpers LilHelpers
+
+set :md, :layout_engine => :haml
+
+activate :directory_indexes
+
+page "test.html", :layout => "layouts/test"
+
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true,
+               :autolink => true, 
+               :smartypants => true
 ### 
 # Compass
 ###
 
 # Susy grids in Compass
-# First: gem install compass-susy-plugin
+# First: gem install susy
 # require 'susy'
 
 # Change Compass configuration
@@ -12,25 +25,7 @@
 # end
 
 ###
-# Haml
-###
-
-# CodeRay syntax highlighting in Haml
-# First: gem install haml-coderay
-require 'haml-coderay'
-
-# CoffeeScript filters in Haml
-# First: gem install coffee-filter
-require 'coffee-filter'
-
-require "redcarpet"
-set :markdown_engine, :redcarpet
-
-# Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
-
-###
-# Page command
+# Page options, layouts, aliases and proxies
 ###
 
 # Per-page layout changes:
@@ -55,6 +50,9 @@ set :markdown_engine, :redcarpet
 # Helpers
 ###
 
+# Automatic image dimensions on image_tag helper
+# activate :automatic_image_sizes
+
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
@@ -62,45 +60,31 @@ set :markdown_engine, :redcarpet
 #   end
 # end
 
-require "./lib/lil_helpers"
-helpers LilHelpers
+set :css_dir, 'stylesheets'
 
-activate :directory_indexes
+set :js_dir, 'javascripts'
 
-enable :maruku
+set :images_dir, 'images'
 
-set :md, :layout_engine => :haml
-
-page "test.html", :layout => "layouts/test"
-
-# Change the CSS directory
-# set :css_dir, "alternative_css_directory"
-
-# Change the JS directory
-# set :js_dir, "alternative_js_directory"
-
-# Change the images directory
-# set :images_dir, "alternative_image_directory"
 # Build-specific configuration
-::Compass.configuration.sass_options = { :precision => 1 }
 configure :build do
   # For example, change the Compass output style for deployment
-  # activate :minify_css
-
+  activate :minify_css
+  
   # Minify Javascript on build
-  # activate :minify_javascript
-
+  activate :minify_javascript
+  
   # Enable cache buster
   # activate :cache_buster
-
+  
   # Use relative URLs
   # activate :relative_assets
-
+  
   # Compress PNGs after build
   # First: gem install middleman-smusher
   # require "middleman-smusher"
   # activate :smusher
-
+  
   # Or use a different image path
   # set :http_path, "/Content/images/"
 end
