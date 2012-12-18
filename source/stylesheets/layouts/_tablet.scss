@@ -1,13 +1,14 @@
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   #{$container} {
     @include grid(8);
+    @include clearfix;
+
   }
   #page {
     @include clearfix;
   }
   [role=main] {
-    @include column(5, 0);
-    float: left;
+    padding:1.5em 1.5em 1em;
   }
   .CTA {
     display: inline-block;
@@ -15,8 +16,70 @@
     float: right;
     text-decoration: none;
   }
+  .pitch {
+    background:#fff;
+    .content{
+      @include column(6, last);
+      @include prepend-column(4, true);
+      p{
+        font-size:2em;
+        margin-bottom:1em;
+      }
+      .cta a{
+        display:block;
+        -moz-box-sizing: border-box; 
+        -webkit-box-sizing: border-box; 
+        box-sizing: border-box;
+        text-decoration: none; 
+        @include clean-pill-button(#999, 72px);
+        @include prepend-column(2);
+        @include append-column(2);
+        @include pad-column(1);
+        padding-top:6px;
+        line-height:1.25;
+        font-size: 1.75em;
+        text-align:center;
+        color:#fff;
+        span{
+          display:block;
+          font-size:.75em;
+        }
+      }
+    }
+  }
+
   aside {
     @include column(3, last);
     float: left;
   }
+  .features{
+    li:nth-child(2n + 1){
+      @include column(4, first);
+            @include prepend-column(1);
+      float:left;
+    }
+    li:nth-child(2n){
+      @include column(4, last);
+      float:left;
+    }
+  }
+  .first {
+    @include column(2, first);
+    @include append-column(1);
+    float: left; 
+    background:rgba(0,0,0,.2);
+  }
+  .second {
+    @include column(2);
+    @include append-column(1);
+    float: left; 
+    background:rgba(0,0,0,.2);
+  }
+  .third {
+    @include column(4, last);
+    float: left; 
+    background:rgba(0,0,0,.2);
+  }
+
 }
+

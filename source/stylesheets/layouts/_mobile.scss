@@ -1,19 +1,55 @@
 @mixin mobile {
   #{$container} {
     @include grid(3);
+    @include clearfix;
   }
   [role=main] {
-    @include column(3, last);
+    padding:1.5em 1.5em 1em;
   }
   aside {
     @include column(3, last);
   }
   .CTA {
-    display: inline-block;
-    @include column(3, last);
+    display: block;
     text-decoration: none;
+    text-align:center;
+    line-height:3;
+    margin-top:1em;
   }
+   .pitch {
+    background:#fff;
+    padding-top:1em;
+    padding-bottom:2em;
+    .content{
+      p{
+        font-size:2em;
+        margin-bottom:1em;
+      }
+      .cta a{
+        display:block;
+        -moz-box-sizing: border-box; 
+        -webkit-box-sizing: border-box; 
+        box-sizing: border-box;
+        text-decoration: none; 
+        @include clean-pill-button(#999, 72px);
+        @include prepend-column(1);
+        @include append-column(1);
+        @include pad-column(1);
+        padding-top:6px;
+        line-height:1.25;
+        font-size: 1.75em;
+        text-align:center;
+        color:#fff;
+        span{
+          display:block;
+          font-size:.75em;
+        }
+      }
+    }
+  }
+  footer{padding-bottom:2em;}
 }
 @media only screen and (max-width: 479px) {
   @include mobile; 
 }
+

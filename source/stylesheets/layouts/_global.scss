@@ -107,6 +107,12 @@ nav {
 aside {
   background: $primaryBGColor; 
 }
+.features{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
 
 // Selection colors (easy to forget)
 @include selection-color(unquote("rgb(255,255,158)"));
+
