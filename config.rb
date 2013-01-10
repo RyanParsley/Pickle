@@ -11,6 +11,23 @@ set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true,
                :autolink => true, 
                :smartypants => true
+###
+# middleman-deploy settings
+###
+#activate :deploy do |deploy|
+#  deploy.method = :rsync
+#  deploy.user = ""
+#  deploy.host = ""
+#  deploy.path = ""
+#end
+
+###
+# Use LiveReload
+###
+#activate :livereload
+
+
+
 ### 
 # Compass
 ###
