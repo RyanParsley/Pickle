@@ -26,8 +26,6 @@ set :markdown, :fenced_code_blocks => true,
 ###
 #activate :livereload
 
-
-
 ### 
 # Compass
 ###
