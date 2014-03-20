@@ -24,7 +24,7 @@ set :markdown, :fenced_code_blocks => true,
 ###
 # Use LiveReload
 ###
-#activate :livereload
+activate :livereload
 
 ### 
 # Compass
