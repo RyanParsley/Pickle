@@ -20,12 +20,14 @@
   nav.secondary ul{
   }
   [role=main] {
+    @include column(6,last);
     border: solid 1px $primaryColor;
     padding:1.5em 1.5em 1em;
     float: left;
   }
   aside {
     @include column(3, last);
+    @include prepend-column(1);
     float: left;
   }
   .CTA {
